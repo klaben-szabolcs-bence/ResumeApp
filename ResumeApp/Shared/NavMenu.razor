@@ -1,34 +1,36 @@
-﻿<div class="top-row ps-3 navbar navbar-dark">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="">ResumeApp</a>
-        <button title="Navigation menu" class="navbar-toggler" @onclick="ToggleNavMenu">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-    </div>
-</div>
+﻿@using ResumeApp.Services
+@inject BrowserModeService BrowserModeService
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <nav class="flex-column">
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </div>
-        <div class="nav-item px-3">
-            <NavLink class="nav-link" href="resume">
-                <span class="oi oi-book" aria-hidden="true"></span> Resume
-            </NavLink>
-        </div>
-    </nav>
-</div>
+<nav class="left tiny-padding elevate m l">
+    <NavLink href="" Match="NavLinkMatch.All">
+        <i>home</i> <span>Home</span>
+    </NavLink>
+    <NavLink  href="resume">
+        <i>description</i> <span>Resume</span>
+    </NavLink>
+    <div class="max"></div>
+    <button class="circle transparent" @onclick="BrowserModeService.ToggleDarkModeAsync">
+        <i>light_mode</i> <span>Toggle Theme</span>
+    </button>
+</nav>
+<nav class="bottom elevate s">
+    <NavLink href="" Match="NavLinkMatch.All">
+        <i>home</i> <span>Home</span>
+    </NavLink>
+    <NavLink  href="resume">
+        <i>description</i> <span>Resume</span>
+    </NavLink>
+    <div class="max"></div>
+    <button class="circle transparent" @onclick="BrowserModeService.ToggleDarkModeAsync">
+        <i>light_mode</i> <span>Toggle Theme</span>
+    </button>
+</nav>
+
 
 @code {
-    private bool collapseNavMenu = true;
-
-    private string? NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    protected override async Task OnInitializedAsync()
     {
-        collapseNavMenu = !collapseNavMenu;
+        await BrowserModeService.SetDarkModeAsync(await BrowserModeService.GetDarkModePreferenceAsync());
     }
+
 }
