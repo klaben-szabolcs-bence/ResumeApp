@@ -5,14 +5,35 @@
 @if (ResumeData == null)
 {
     <PageTitle>Resume is loading...</PageTitle>
-    <div class="loading-progress-text"></div>
+    <div class="spinner-border" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
 }
 else
 {
     <PageTitle>Resume of @ResumeData.Basics.Name</PageTitle>
     <ResumeBasics Basics="ResumeData.Basics" />
-    <ResumeEducation Education="ResumeData.Education" />
-    <ResumeCertifications Certifications="ResumeData.Certificates" />
+    <div class="education">
+        <h1>Education</h1>
+        @foreach (var education in ResumeData.Education)
+        {
+            <ResumeEducation Education="education" />
+        }
+    </div>
+    @if (ResumeData.Certificates != null)
+    {
+        <div class="certifications">
+            <h1>Certifications</h1>
+            @foreach (var certificate in ResumeData.Certificates)
+            {
+                <ResumeCertification Certification="certificate" />
+            }
+        </div>
+    }
+    else
+    {
+        <!-- Certifications are not available -->
+    }
     <ResumeLanguages Languages="ResumeData.Languages" />
 }
 @code {

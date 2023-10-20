@@ -1,0 +1,19 @@
+﻿@if (Certification != null)
+{
+    <li>
+        <h2>@Certification.Name</h2>
+        <ul>
+            <li>Issuer: @Certification.Issuer</li>
+            <li>Date: @Certification.Date</li>
+        </ul>
+    </li>
+}
+else
+{
+    <!-- Certification is not available -->
+}
+
+@code {
+    [Parameter]
+    public ResumeCertificationModel? Certification { get; set; }
+}

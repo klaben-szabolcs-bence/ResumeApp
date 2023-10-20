@@ -2,17 +2,19 @@
 {
     <div class="languages">
         <h1>Languages</h1>
-        <ul>
+        <p> I can speak 
             @foreach (var language in Languages)
             {
-                <li>
-                    <h2>@language.Name</h2>
-                    <ul>
-                        <li>Level: @language.Level</li>
-                    </ul>
-                </li>
+                @if (language == Languages.Last())
+                {
+                    <span class="language"> and @language.Level @language.Name!</span>
+                }
+                else
+                {
+                    <span class="language">@language.Level @language.Name,</span>
+                }
             }
-        </ul>
+        </p>
     </div>
 }
 else

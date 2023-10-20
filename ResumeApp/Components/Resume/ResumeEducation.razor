@@ -1,21 +1,13 @@
 ﻿@if (Education != null)
 {
-    <div class="education">
-        <h1>Education</h1>
+    <li>
+        <h2>@Education.School</h2>
         <ul>
-            @foreach (var education in Education)
-            {
-                <li>
-                    <h2>@education.School</h2>
-                    <ul>
-                        <li>Degree: @education.Degree</li>
-                        <li>Graduated: @education.Graduated</li>
-                    </ul>
-                </li>
-                <p>@education.Description</p>
-            }
+            <li>Degree: @Education.Degree</li>
+            <li>Graduated: @Education.Graduated</li>
+            <li>@Education.Description</li>
         </ul>
-    </div>
+    </li>
 }
 else
 {
@@ -23,5 +15,5 @@ else
 }
 @code {
     [Parameter]
-    public List<ResumeEducationModel>? Education { get; set; }
+    public ResumeEducationModel? Education { get; set; }
 }
