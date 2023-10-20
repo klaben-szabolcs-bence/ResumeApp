@@ -2,7 +2,7 @@
   "basics": {
     "name": "Kláben Szabolcs Bence",
     "label": "Software Developer",
-    "picture": "",
+    "picture": "pictures/pfp.jpg",
     "email": "klaben.szabolcs@gmail.com",
     "birthDate": "2000-05-20"
   },
@@ -10,32 +10,38 @@
     {
       "school": "University of Miskolc",
       "degree": "Bachelor of Science in Software Information Technology",
-      "graduated": "2022",
+      "graduated": true,
+      "startDate": "2019-09-01",
+      "endDate": "2022-09-16",
       "description": "I graduated with a degree in Software Information Technology. I have taken courses in C, C#, HTML, CSS, JS, SQL, and more."
     },
     {
       "school": "Andrássy Gyula Vocational High School",
       "degree": "Vocational Matura for Maintaince of Computer Systems",
-      "graduated": "2019",
+      "graduated": true,
+      "startDate": "2015-09-01",
+      "endDate": "2019-06-21",
       "description": "I graduated with a vocational matura. I have taken courses in C#, HTML, CSS, SQL, and more."
     },
     {
       "school": "Saint Francis of Assisi Roman Catcholic Primary School of Diósgyőr",
       "degree": "Primary School",
-      "graduated": "2015",
+      "graduated": true,
+      "startDate": "2007-06-01",
+      "endDate": "2015-06-15",
       "description": "I graduated from primary school. I have taken extra-curricular classes in Pascal, Imagine Logo, PHP, HTML, CSS, and SQL."
     }
   ],
   "certificates": [
     {
-      "name": "European Computer Driving Licence Standard",
-      "date": "2015",
-      "issuer": "NJSZT"
+      "name": "English (CEFR B2)",
+      "date": "2022-08-31",
+      "issuer": "ELTE Origó Nyelvi Centrum Kft."
     },
     {
-      "name": "English (CEFR B2)",
-      "date": "2022",
-      "issuer": "ELTE Origó"
+      "name": "European Computer Driving Licence Standard",
+      "date": "2015-07-09",
+      "issuer": "Neumann János Számítógépes Társaság"
     }
   ],
   "languages": [

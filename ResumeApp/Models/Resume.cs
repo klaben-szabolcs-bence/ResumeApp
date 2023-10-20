@@ -22,7 +22,9 @@ public record ResumeEducationModel
 {
     public string School { get; set; }
     public string Degree { get; set; }
-    public string Graduated { get; set; }
+    public bool Graduated { get; set; }
+    public DateOnly StartDate { get; set; }
+    public DateOnly? EndDate { get; set; }
     public string? Description { get; set; }
 }
 
