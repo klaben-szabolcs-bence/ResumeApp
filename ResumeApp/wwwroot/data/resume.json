@@ -1,0 +1,51 @@
+{
+  "basics": {
+    "name": "Kláben Szabolcs Bence",
+    "label": "Software Developer",
+    "picture": "",
+    "email": "klaben.szabolcs@gmail.com",
+    "birthDate": "2000-05-20"
+  },
+  "education": [
+    {
+      "school": "University of Miskolc",
+      "degree": "Bachelor of Science in Software Information Technology",
+      "graduated": "2022",
+      "description": "I graduated with a degree in Software Information Technology. I have taken courses in C, C#, HTML, CSS, JS, SQL, and more."
+    },
+    {
+      "school": "Andrássy Gyula Vocational High School",
+      "degree": "Vocational Matura for Maintaince of Computer Systems",
+      "graduated": "2019",
+      "description": "I graduated with a vocational matura. I have taken courses in C#, HTML, CSS, SQL, and more."
+    },
+    {
+      "school": "Saint Francis of Assisi Roman Catcholic Primary School of Diósgyőr",
+      "degree": "Primary School",
+      "graduated": "2015",
+      "description": "I graduated from primary school. I have taken extra-curricular classes in Pascal, Imagine Logo, PHP, HTML, CSS, and SQL."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "European Computer Driving Licence Standard",
+      "date": "2015",
+      "issuer": "NJSZT"
+    },
+    {
+      "name": "English (CEFR B2)",
+      "date": "2022",
+      "issuer": "ELTE Origó"
+    }
+  ],
+  "languages": [
+    {
+      "name": "Hungarian",
+      "level": "Native"
+    },
+    {
+      "name": "English",
+      "level": "Fluent"
+    }
+  ]
+}
