@@ -5,36 +5,50 @@
 @if (ResumeData == null)
 {
     <PageTitle>Resume is loading...</PageTitle>
-    <a class="loader" role="status">
+    <a class="loader little-padding" role="status">
         <span class="tiny no-opacity">Loading...</span>
     </a>
 }
 else
 {
-    <PageTitle>Resume of @ResumeData.Basics.Name</PageTitle>
-    <ResumeBasics Basics="ResumeData.Basics" />
-    <div class="education">
-        <h1>Education</h1>
-        @foreach (var education in ResumeData.Education)
+    <article class="primary-container">
+        <PageTitle>Resume of @ResumeData.Basics.Name</PageTitle>
+        <ResumeBasics Basics="ResumeData.Basics" />
+        <article>
+            <details>
+                <summary class="none">
+                    <div class="row">
+                        <i>school</i>
+                        <div class="max">
+                            <h5>Education</h5>
+                        </div>
+                        <i class="right">arrow_drop_down</i>
+                    </div>
+                </summary>
+                <div>
+                    @foreach (var education in ResumeData.Education)
+                    {
+                        <ResumeEducation Education="education" />
+                    }
+                </div>
+            </details>
+        </article>
+        @if (ResumeData.Certificates != null)
         {
-            <ResumeEducation Education="education" />
-        }
-    </div>
-    @if (ResumeData.Certificates != null)
-    {
-        <div class="certifications">
+            <div class="certifications">
             <h1>Certifications</h1>
             @foreach (var certificate in ResumeData.Certificates)
             {
                 <ResumeCertification Certification="certificate" />
             }
         </div>
-    }
+        }
     else
     {
         <!-- Certifications are not available -->
     }
     <ResumeLanguages Languages="ResumeData.Languages" />
+    </article>
 }
 @code {
     public ResumeModel? ResumeData { get; set; }

@@ -1,13 +1,15 @@
 ﻿@if (Basics != null)
 {
-    <div class="about">
-        <h1>About</h1>
-        <ul>
-            <li>Name: @Basics.Name</li>
-            <li>Label: @Basics.Label</li>
-            <li>Date of Birth: @Basics.BirthDate</li>
-        </ul>
-    </div>
+    <article class="secondary">
+        <div class="row">
+            <img class="circle large" src="@Basics.Picture"/>
+            <div class="max">
+                <h5>@Basics.Name</h5>
+                <p>@Basics.Label</p>
+                <p>Born on @Basics.BirthDate</p>
+            </div>
+        </div>
+    </article>
 }
 else
 {

@@ -1,19 +1,32 @@
 ﻿@if (Education != null)
 {
-    <li>
-        <h2>@Education.School</h2>
-        <ul>
-            <li>Degree: @Education.Degree</li>
-            <li>Graduated: @Education.Graduated</li>
-            <li>@Education.Description</li>
-        </ul>
-    </li>
+    <div class="row">
+        <i class="@IconColorClassCss">school</i>
+        <div class="max">
+            <h6>(@DateString) @Education.School</h6>
+            <p>@Education.Degree</p>
+            <p>@Education.Description</p>
+        </div>
+
+    </div>
 }
 else
 {
     <!-- Education is not available -->
 }
 @code {
+    public string IconColorClassCss = "orange-text";
+    public string? DateString; 
+    
     [Parameter]
     public ResumeEducationModel? Education { get; set; }
+    
+    protected override void OnParametersSet()
+    {
+        if (Education == null) return;
+        IconColorClassCss = Education.Graduated ? "light-green-text" : "orange-text";
+        DateString = Education.EndDate == null
+            ? $"{Education.StartDate.Year} - Present"
+            : $"{Education.StartDate.Year} - {Education.EndDate?.Year}";
+    }
 }
