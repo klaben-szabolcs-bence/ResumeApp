@@ -1,0 +1,20 @@
+﻿@if (Basics != null)
+{
+    <div class="about">
+        <h1>About</h1>
+        <ul>
+            <li>Name: @Basics.Name</li>
+            <li>Label: @Basics.Label</li>
+            <li>Date of Birth: @Basics.BirthDate</li>
+        </ul>
+    </div>
+}
+else
+{
+    <!-- Basic information is not available -->
+}
+
+@code {
+    [Parameter]
+    public ResumeBasicsModel? Basics { get; set; }
+}

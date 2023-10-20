@@ -1,66 +1,19 @@
 ﻿@page "/resume"
+@using ResumeApp.Components.Resume
 @inject HttpClient Http
 
 @if (ResumeData == null)
 {
+    <PageTitle>Resume is loading...</PageTitle>
     <p><em>Loading...</em></p>
 }
 else
 {
     <PageTitle>Resume of @ResumeData.Basics.Name</PageTitle>
-    <div class="about">
-        <h1>About</h1>
-        <ul>
-            <li>Name: @ResumeData.Basics.Name</li>
-            <li>Label: @ResumeData.Basics.Label</li>
-            <li>Date of Birth: @ResumeData.Basics.DateBirth</li>
-        </ul>
-    </div>
-    <div class="education">
-        <h1>Education</h1>
-        <ul>
-            @foreach (var education in ResumeData.Education)
-            {
-                <li>
-                    <h2>@education.School</h2>
-                    <ul>
-                        <li>Degree: @education.Degree</li>
-                        <li>Graduated: @education.Graduated</li>
-                    </ul>
-                </li>
-                <p>@education.Description</p>
-            }
-        </ul>
-    </div>
-    <div class="certificates">
-        <h1>Certificates</h1>
-        <ul>
-            @foreach (var certificate in ResumeData.Certificates)
-            {
-                <li>
-                    <h2>@certificate.Name</h2>
-                    <ul>
-                        <li>Issuer: @certificate.Issuer</li>
-                        <li>Date: @certificate.Date</li>
-                    </ul>
-                </li>
-            }
-        </ul>
-    </div>
-    <div class="languages">
-        <h1>Languages</h1>
-        <ul>
-            @foreach (var language in ResumeData.Languages)
-            {
-                <li>
-                    <h2>@language.Name</h2>
-                    <ul>
-                        <li>Level: @language.Level</li>
-                    </ul>
-                </li>
-            }
-        </ul>
-    </div>
+    <ResumeBasics Basics="ResumeData.Basics" />
+    <ResumeEducation Education="ResumeData.Education" />
+    <ResumeCertifications Certifications="ResumeData.Certificates" />
+    <ResumeLanguages Languages="ResumeData.Languages" />
 }
 @code {
     public ResumeModel? ResumeData { get; set; }

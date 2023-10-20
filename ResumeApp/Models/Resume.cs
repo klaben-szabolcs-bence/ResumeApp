@@ -15,7 +15,7 @@ public record ResumeBasicsModel
     public string Label { get; set; }
     public string Picture { get; set; }
     public string Email { get; set; }
-    public DateTime? DateBirth { get; set; }
+    public DateOnly BirthDate { get; set; }
 }
 
 public record ResumeEducationModel

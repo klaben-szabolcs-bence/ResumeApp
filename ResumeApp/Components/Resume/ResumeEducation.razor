@@ -1,0 +1,27 @@
+﻿@if (Education != null)
+{
+    <div class="education">
+        <h1>Education</h1>
+        <ul>
+            @foreach (var education in Education)
+            {
+                <li>
+                    <h2>@education.School</h2>
+                    <ul>
+                        <li>Degree: @education.Degree</li>
+                        <li>Graduated: @education.Graduated</li>
+                    </ul>
+                </li>
+                <p>@education.Description</p>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <!-- Education is not available -->
+}
+@code {
+    [Parameter]
+    public List<ResumeEducationModel>? Education { get; set; }
+}

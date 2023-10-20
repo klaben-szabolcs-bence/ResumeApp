@@ -1,0 +1,27 @@
+﻿@if (Certifications != null)
+{
+    <div class="certifications">
+        <h1>Certifications</h1>
+        <ul>
+            @foreach (var certificate in Certifications)
+            {
+                <li>
+                    <h2>@certificate.Name</h2>
+                    <ul>
+                        <li>Issuer: @certificate.Issuer</li>
+                        <li>Date: @certificate.Date</li>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <!-- Certifications are not available -->
+}
+
+@code {
+    [Parameter]
+    public List<ResumeCertificationModel>? Certifications { get; set; }
+}

@@ -1,0 +1,25 @@
+﻿@if (Languages != null)
+{
+    <div class="languages">
+        <h1>Languages</h1>
+        <ul>
+            @foreach (var language in Languages)
+            {
+                <li>
+                    <h2>@language.Name</h2>
+                    <ul>
+                        <li>Level: @language.Level</li>
+                    </ul>
+                </li>
+            }
+        </ul>
+    </div>
+}
+else
+{
+    <!-- Languages are not available -->
+}
+@code {
+    [Parameter]
+    public List<ResumeLanguageModel>? Languages { get; set; }
+}
