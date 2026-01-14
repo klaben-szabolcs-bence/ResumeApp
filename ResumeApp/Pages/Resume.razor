@@ -35,19 +35,55 @@ else
         </article>
         @if (ResumeData.Certificates != null)
         {
-            <div class="certifications">
-            <h1>Certifications</h1>
-            @foreach (var certificate in ResumeData.Certificates)
-            {
-                <ResumeCertification Certification="certificate" />
-            }
-        </div>
+            <article>
+            <details>
+                <summary class="none">
+                    <div class="row">
+                        <i>certificate</i>
+                        <div class="max">
+                            <h5>Certifications</h5>
+                        </div>
+                        <i class="right">arrow_drop_down</i>
+                    </div>
+                </summary>
+                <div>
+                    @foreach (var certification in ResumeData.Certificates)
+                    {
+                        <ResumeCertification Certification="certification" />
+                    }
+                </div>
+            </details>
+        </article>
         }
     else
     {
         <!-- Certifications are not available -->
     }
-    <ResumeLanguages Languages="ResumeData.Languages" />
+    @if (ResumeData.Languages != null)
+    {
+        article>
+            <details>
+                <summary class="none">
+                    <div class="row">
+                        <i>language</i>
+                        <div class="max">
+                            <h5>Languages</h5>
+                        </div>
+                        <i class="right">arrow_drop_down</i>
+                    </div>
+                </summary>
+                <div>
+                    @foreach (var language in ResumeData.Languages)
+                    {
+                        <ResumeLanguages Language="language" />
+                    }
+                </div>
+            </details>
+        </article>
+    }
+    else {
+    <!-- Languages not available -->
+    }
     </article>
 }
 @code {
