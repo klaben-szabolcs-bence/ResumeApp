@@ -1,27 +1,19 @@
 ﻿@if (Languages != null)
 {
-    <div class="languages">
-        <h1>Languages</h1>
-        <p> I can speak 
-            @foreach (var language in Languages)
-            {
-                @if (language == Languages.Last())
-                {
-                    <span class="language"> and @language.Level @language.Name!</span>
-                }
-                else
-                {
-                    <span class="language">@language.Level @language.Name,</span>
-                }
-            }
-        </p>
+    <div class="row">
+        
+        <i class="@IconColorClassCss">language</i>
+        <div class="max">
+            <h6>@Language.Name</h6>
+            <p>@Language.Level</p>
+        </div>
     </div>
 }
 else
 {
-    <!-- Languages are not available -->
+    <!-- Language not available -->
 }
 @code {
     [Parameter]
-    public List<ResumeLanguageModel>? Languages { get; set; }
+    public ResumeLanguageModel? Language { get; set; }
 }
