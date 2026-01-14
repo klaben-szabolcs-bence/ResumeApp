@@ -1,2 +1,2 @@
 # ResumeApp
-[![Deploy web app to Azure Static Web Apps](https://github.com/klaben-szabolcs-bence/ResumeApp/actions/workflows/azure-staticwebapp.yml/badge.svg)](https://github.com/klaben-szabolcs-bence/ResumeApp/actions/workflows/azure-staticwebapp.yml)
+[![Azure Static Web Apps CI/CD](https://github.com/klaben-szabolcs-bence/ResumeApp/actions/workflows/azure-static-web-apps-ashy-smoke-0a28e8e03.yml/badge.svg)](https://github.com/klaben-szabolcs-bence/ResumeApp/actions/workflows/azure-static-web-apps-ashy-smoke-0a28e8e03.yml)
