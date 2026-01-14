@@ -1,0 +1,40 @@
+@using ResumeApp.Services
+@using ResumeApp.Models
+@inject ResumeService ResumeService
+
+@if (_resumeData != null)
+{
+    <footer class="center-align padding surface-container">
+        <article class="no-elevate transparent">
+            <div class="row center-align wrap small-gap on-surface-text">
+                @if (!string.IsNullOrEmpty(_resumeData.Basics.Repository))
+                {
+                    <a href="@_resumeData.Basics.Repository" target="_blank" class="no-underline on-surface-text row no-wrap tiny-gap">
+                        <i class="devicon-github-original"></i>
+                        <span>Made with ❤️ at GitHub</span>
+                    </a>
+                    <div class="vertical-divider m l"></div>
+                }
+                <span>&copy; @DateTime.Now.Year @_resumeData.Basics.Name</span>
+                <div class="vertical-divider m l"></div>
+                <span>GDPR: We collect no cookies</span>
+                @if (_lastCommitDate.HasValue)
+                {
+                    <div class="vertical-divider m l"></div>
+                    <span>Last updated: @_lastCommitDate.Value.ToString("yyyy-MM-dd HH:mm")</span>
+                }
+            </div>
+        </article>
+    </footer>
+}
+
+@code {
+    private ResumeModel? _resumeData;
+    private DateTime? _lastCommitDate;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _resumeData = await ResumeService.GetResumeDataAsync();
+        _lastCommitDate = await ResumeService.GetLastCommitDateAsync();
+    }
+}

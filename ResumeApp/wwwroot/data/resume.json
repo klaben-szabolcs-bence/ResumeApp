@@ -1,9 +1,10 @@
 {
   "basics": {
     "name": "Kláben Szabolcs Bence",
-    "label": "Software Developer",
-    "picture": "pictures/pfp.jpg",
+    "label": "Junior SAP Developer",
+    "picture": "pictures/pfp.png",
     "email": "klaben.szabolcs@gmail.com",
+    "repository": "https://github.com/klaben-szabolcs-bence/ResumeApp",
     "birthDate": "2000-05-20"
   },
   "education": [
@@ -57,6 +58,40 @@
     {
       "name": "English",
       "level": "Fluent"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Programming Languages",
+      "keywords": [
+        { "name": "C", "icon": "devicon-c-plain" },
+        { "name": "C#", "icon": "devicon-csharp-plain" },
+        { "name": "SQL", "icon": "devicon-azuresqldatabase-plain" },
+        { "name": "HTML", "icon": "devicon-html5-plain" },
+        { "name": "CSS", "icon": "devicon-css3-plain" },
+        { "name": "JS", "icon": "devicon-javascript-plain" },
+        { "name": "PHP", "icon": "devicon-php-plain" },
+        { "name": "ABAP", "icon": "https://cdn.simpleicons.org/sap" }
+      ]
+    },
+    {
+      "name": "Technologies & Frameworks",
+      "keywords": [
+        { "name": ".NET", "icon": "devicon-dot-net-plain" },
+        { "name": "Blazor", "icon": "devicon-blazor-plain" },
+        { "name": "WinForms", "icon": "https://raw.githubusercontent.com/dotnet/brand/main/logo/dotnet-logo.svg" },
+        { "name": "WPF", "icon": "https://raw.githubusercontent.com/dotnet/brand/main/logo/dotnet-logo.svg" },
+        { "name": "Material UI", "icon": "devicon-materialui-plain" },
+        { "name": "SAP", "icon": "https://cdn.simpleicons.org/sap" }
+      ]
+    }
+  ],
+  "work": [
+    {
+      "company": "Gramont Kft.",
+      "position": "Junior SAP Developer",
+      "startDate": "2023-02-01",
+      "summary": "In my role, I've specialized in troubleshooting and resolving issues that use ABAP; With HANA, my focus has been solely on fixing Calculation Views used for data analysis and reporting; With Power BI, I have focused on resolving issues within reports. This tripart expertise has allowed me to effectively address technical challenges and issues no matter the environment."
     }
   ]
 }

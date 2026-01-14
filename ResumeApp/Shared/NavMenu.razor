@@ -1,27 +1,27 @@
 ﻿@using ResumeApp.Services
 @inject BrowserModeService BrowserModeService
 
-<nav class="left tiny-padding elevate m l">
-    <NavLink href="" Match="NavLinkMatch.All">
+<nav class="left tiny-padding elevate m l secondary-container">
+    <NavLink href="" Match="NavLinkMatch.All" class="on-secondary-container-text">
         <i>home</i> <span>Home</span>
     </NavLink>
-    <NavLink  href="resume">
+    <NavLink  href="resume" class="on-secondary-container-text">
         <i>description</i> <span>Resume</span>
     </NavLink>
     <div class="max"></div>
-    <button class="circle transparent" @onclick="BrowserModeService.ToggleDarkModeAsync">
+    <button class="circle transparent on-secondary-container-text" @onclick="BrowserModeService.ToggleDarkModeAsync">
         <i>light_mode</i> <span>Toggle Theme</span>
     </button>
 </nav>
-<nav class="bottom elevate s">
-    <NavLink href="" Match="NavLinkMatch.All">
+<nav class="bottom elevate s secondary-container">
+    <NavLink href="" Match="NavLinkMatch.All" class="on-secondary-container-text">
         <i>home</i> <span>Home</span>
     </NavLink>
-    <NavLink  href="resume">
+    <NavLink  href="resume" class="on-secondary-container-text">
         <i>description</i> <span>Resume</span>
     </NavLink>
     <div class="max"></div>
-    <button class="circle transparent" @onclick="BrowserModeService.ToggleDarkModeAsync">
+    <button class="circle transparent on-secondary-container-text" @onclick="BrowserModeService.ToggleDarkModeAsync">
         <i>light_mode</i> <span>Toggle Theme</span>
     </button>
 </nav>

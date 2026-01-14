@@ -1,0 +1,39 @@
+@if (Skill != null)
+{
+    <div class="row">
+        <i class="@IconColorClassCss">code</i>
+        <div class="max">
+            <h6>@Skill.Name</h6>
+            <div class="row wrap small-gap">
+                @foreach (var keyword in Skill.Keywords)
+                {
+                    <div class="chip border">
+                        @if (!string.IsNullOrEmpty(keyword.Icon))
+                        {
+                            @if (keyword.Icon.StartsWith("http"))
+                            {
+                                <img class="circle" src="@keyword.Icon" alt="@keyword.Name logo" style="width: 1.5rem; height: 1.5rem;" />
+                            }
+                            else
+                            {
+                                <i class="@keyword.Icon colored"></i>
+                            }
+                        }
+                        <span>@keyword.Name</span>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <!-- Skill not available -->
+}
+
+@code {
+    private const string IconColorClassCss = "light-green-text";
+
+    [Parameter]
+    public ResumeSkillModel? Skill { get; set; }
+}

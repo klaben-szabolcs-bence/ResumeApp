@@ -1,11 +1,11 @@
-﻿@if (Languages != null)
+﻿@if (Language != null)
 {
     <div class="row">
         
         <i class="@IconColorClassCss">language</i>
         <div class="max">
-            <h6>@Language.Name</h6>
-            <p>@Language.Level</p>
+            <h6>@Language?.Name</h6>
+            <p>@Language?.Level</p>
         </div>
     </div>
 }
@@ -14,6 +14,7 @@ else
     <!-- Language not available -->
 }
 @code {
+    private const string IconColorClassCss = "light-green-text";
     [Parameter]
     public ResumeLanguageModel? Language { get; set; }
 }

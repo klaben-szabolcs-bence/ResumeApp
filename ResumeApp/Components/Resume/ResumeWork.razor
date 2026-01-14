@@ -1,0 +1,31 @@
+@if (Work != null)
+{
+    <div class="row">
+        <i class="@IconColorClassCss">work</i>
+        <div class="max">
+            <h6>(@_dateString) @Work.Company</h6>
+            <p><strong>@Work.Position</strong></p>
+            <p>@Work.Summary</p>
+        </div>
+    </div>
+}
+else
+{
+    <!-- Work entry not available -->
+}
+
+@code {
+    private const string IconColorClassCss = "blue-text";
+    private string? _dateString;
+
+    [Parameter]
+    public ResumeWorkModel? Work { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        if (Work == null) return;
+        _dateString = Work.EndDate == null
+            ? $"{Work.StartDate.Year} - Present"
+            : $"{Work.StartDate.Year} - {Work.EndDate?.Year}";
+    }
+}

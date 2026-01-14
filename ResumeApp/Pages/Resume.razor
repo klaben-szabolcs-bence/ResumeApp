@@ -1,6 +1,7 @@
 ﻿@page "/resume"
 @using ResumeApp.Components.Resume
-@inject HttpClient Http
+@using ResumeApp.Services
+@inject ResumeService ResumeService
 
 @if (ResumeData == null)
 {
@@ -14,6 +15,28 @@ else
     <article class="primary-container">
         <PageTitle>Resume of @ResumeData.Basics.Name</PageTitle>
         <ResumeBasics Basics="ResumeData.Basics" />
+        @if (ResumeData.Work != null)
+        {
+            <article>
+                <details>
+                    <summary class="none">
+                        <div class="row">
+                            <i>work</i>
+                            <div class="max">
+                                <h5>Work Experience</h5>
+                            </div>
+                            <i class="right">arrow_drop_down</i>
+                        </div>
+                    </summary>
+                    <div>
+                        @foreach (var work in ResumeData.Work)
+                        {
+                            <ResumeWork Work="work" />
+                        }
+                    </div>
+                </details>
+            </article>
+        }
         <article>
             <details>
                 <summary class="none">
@@ -36,32 +59,57 @@ else
         @if (ResumeData.Certificates != null)
         {
             <article>
-            <details>
-                <summary class="none">
-                    <div class="row">
-                        <i>certificate</i>
-                        <div class="max">
-                            <h5>Certifications</h5>
+                <details>
+                    <summary class="none">
+                        <div class="row">
+                            <i>workspace_premium</i>
+                            <div class="max">
+                                <h5>Certifications</h5>
+                            </div>
+                            <i class="right">arrow_drop_down</i>
                         </div>
-                        <i class="right">arrow_drop_down</i>
+                    </summary>
+                    <div>
+                        @foreach (var certification in ResumeData.Certificates)
+                        {
+                            <ResumeCertification Certification="certification" />
+                        }
                     </div>
-                </summary>
-                <div>
-                    @foreach (var certification in ResumeData.Certificates)
-                    {
-                        <ResumeCertification Certification="certification" />
-                    }
-                </div>
-            </details>
-        </article>
+                </details>
+            </article>
         }
-    else
-    {
-        <!-- Certifications are not available -->
-    }
-    @if (ResumeData.Languages != null)
-    {
-        article>
+        else
+        {
+            <!-- Certifications are not available -->
+        }
+
+        @if (ResumeData.Skills != null)
+        {
+            <article>
+                <details>
+                    <summary class="none">
+                        <div class="row">
+                            <i>build</i>
+                            <div class="max">
+                                <h5>Skills</h5>
+                            </div>
+                            <i class="right">arrow_drop_down</i>
+                        </div>
+                    </summary>
+                    <div>
+                        @foreach (var skill in ResumeData.Skills)
+                        {
+                            <ResumeSkills Skill="skill" />
+                        }
+                    </div>
+                </details>
+            </article>
+        }
+        else
+        {
+            <!-- Skills are not available -->
+        }
+        <article>
             <details>
                 <summary class="none">
                     <div class="row">
@@ -80,10 +128,6 @@ else
                 </div>
             </details>
         </article>
-    }
-    else {
-    <!-- Languages not available -->
-    }
     </article>
 }
 @code {
@@ -91,6 +135,6 @@ else
     
     protected override async Task OnInitializedAsync()
     {
-        ResumeData = await Http.GetFromJsonAsync<ResumeModel>("data/resume.json");
+        ResumeData = await ResumeService.GetResumeDataAsync();
     }
 }

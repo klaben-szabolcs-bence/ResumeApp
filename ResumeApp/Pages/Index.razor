@@ -1,7 +1,48 @@
 ﻿@page "/"
+@using ResumeApp.Services
+@using ResumeApp.Models
+@inject ResumeService ResumeService
 
-<PageTitle>Index</PageTitle>
+@if (ResumeData == null)
+{
+    <PageTitle>Welcome to my page!</PageTitle>
+    <div class="center-align middle-align" style="height: 100%">
+        <a class="loader little-padding" role="status">
+            <span class="tiny no-opacity">Loading...</span>
+        </a>
+    </div>
+}
+else
+{
+    <PageTitle>Welcome to @ResumeData.Basics.Name's page</PageTitle>
 
-<h1>Hello, world!</h1>
+    <div class="center-align middle-align" style="height: 100%">
+        <div class="center-align">
+            <h3 class="center-align">Welcome to my page!</h3>
+            <article class="surface-container">
+                <div class="row">
+                    <img class="circle large" src="@ResumeData.Basics.Picture" />
+                    <div class="max">
+                        <p>I am @ResumeData.Basics.Name, a @ResumeData.Basics.Label.</p>
+                    </div>
+                </div>
+                <div class="space"></div>
+                <nav class="center-align">
+                    <a class="button primary" href="resume">
+                        <i>description</i>
+                        <span>View my Resume</span>
+                    </a>
+                </nav>
+            </article>
+        </div>
+    </div>
+}
 
-Welcome to your new app.
+@code {
+    public ResumeModel? ResumeData { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        ResumeData = await ResumeService.GetResumeDataAsync();
+    }
+}
